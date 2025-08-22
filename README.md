@@ -59,9 +59,98 @@ This project leverages modern technologies to ensure scalability, performance, a
 - **Why GitHub Actions**: Integrates seamlessly with GitHub, provides flexible workflow configuration, and supports continuous integration/deployment
 
 ### 🔐 Security & Authentication
-**JWT (JSON Web Tokens)**
-- **Purpose**: Stateless authentication mechanism for secure API access
-- **Why JWT**: Provides secure, scalable authentication without server-side session storage
+## Database Design
+
+The database structure is designed to efficiently handle all core functionalities of the AirBnB clone. Here are the key entities and their relationships:
+
+### 👤 User Entity
+**Key Fields:**
+- `user_id` (Primary Key): Unique identifier for each user
+- `email`: User's email address for authentication and communication
+- `password_hash`: Securely hashed password for authentication
+- `first_name` & `last_name`: User's personal information
+- `phone_number`: Contact information for booking confirmations
+- `profile_picture`: URL to user's avatar image
+- `is_host`: Boolean flag indicating if user can list properties
+- `created_at` & `updated_at`: Timestamp tracking
+
+### 🏠 Property Entity
+**Key Fields:**
+- `property_id` (Primary Key): Unique identifier for each property
+- `host_id` (Foreign Key): Links to User entity (property owner)
+- `title`: Property listing title
+- `description`: Detailed property description
+- `location`: Property address and geographical information
+- `price_per_night`: Nightly rate for the property
+- `max_guests`: Maximum number of guests allowed
+- `amenities`: JSON field storing property features (WiFi, pool, etc.)
+- `availability_status`: Current booking availability
+- `created_at` & `updated_at`: Timestamp tracking
+
+### 📅 Booking Entity
+**Key Fields:**
+- `booking_id` (Primary Key): Unique identifier for each booking
+- `user_id` (Foreign Key): Links to User entity (guest making booking)
+- `property_id` (Foreign Key): Links to Property entity being booked
+- `check_in_date`: Start date of the booking
+- `check_out_date`: End date of the booking
+- `total_price`: Final calculated price for the stay
+- `guest_count`: Number of guests for this booking
+- `booking_status`: Status (pending, confirmed, cancelled, completed)
+- `special_requests`: Any additional guest requirements
+- `created_at` & `updated_at`: Timestamp tracking
+
+### ⭐ Review Entity
+**Key Fields:**
+- `review_id` (Primary Key): Unique identifier for each review
+- `user_id` (Foreign Key): Links to User entity (reviewer)
+- `property_id` (Foreign Key): Links to Property entity being reviewed
+- `booking_id` (Foreign Key): Links to specific Booking this review relates to
+- `rating`: Numerical rating (1-5 stars)
+- `comment`: Written review text
+- `review_date`: When the review was submitted
+- `is_verified`: Boolean indicating if reviewer actually stayed at property
+
+### 💳 Payment Entity
+**Key Fields:**
+- `payment_id` (Primary Key): Unique identifier for each payment
+- `booking_id` (Foreign Key): Links to Booking entity this payment covers
+- `amount`: Payment amount
+- `payment_method`: Type of payment (credit card, PayPal, etc.)
+- `payment_status`: Status (pending, completed, failed, refunded)
+- `transaction_id`: External payment processor reference
+- `payment_date`: When payment was processed
+- `refund_amount`: Amount refunded (if applicable)
+
+### 🔗 Entity Relationships
+
+**User → Property** (One-to-Many)
+- A user (host) can own multiple properties
+- Each property belongs to one host
+
+**User → Booking** (One-to-Many)
+- A user can make multiple bookings
+- Each booking is made by one user
+
+**Property → Booking** (One-to-Many)
+- A property can have multiple bookings
+- Each booking is for one property
+
+**Booking → Payment** (One-to-One)
+- Each booking has one associated payment record
+- Each payment corresponds to one booking
+
+**Booking → Review** (One-to-One)
+- Each completed booking can have one review
+- Each review is tied to a specific booking
+
+**User → Review** (One-to-Many)
+- A user can write multiple reviews
+- Each review is written by one user
+
+**Property → Review** (One-to-Many)
+- A property can receive multiple reviews
+- Each review is about one property
 
 ## Getting Started
 
