@@ -173,8 +173,69 @@ Advanced search functionality enables users to find properties based on multiple
 ### 📧 Notification System
 The notification system keeps users informed about important events such as booking confirmations, payment receipts, check-in reminders, and review requests. It supports multiple communication channels including email and in-app notifications, with user-configurable preferences. The system uses asynchronous task processing to ensure timely delivery without impacting application performance.
 
-### 📊 Analytics and Reporting
-This feature provides hosts with insights into their property performance including booking rates, revenue analytics, and guest demographics. It generates automated reports for financial tracking and helps hosts optimize their pricing and availability strategies. The system also provides platform-wide analytics for administrative purposes and business intelligence.
+## API Security
+
+Security is paramount in the AirBnB Clone project, especially given the sensitive nature of user data, financial transactions, and property information. Our comprehensive security strategy includes multiple layers of protection:
+
+### 🔐 Authentication & Authorization
+**JWT Token-Based Authentication**
+- **Implementation**: Secure JSON Web Tokens for stateless user authentication across all API endpoints
+- **Why Critical**: Prevents unauthorized access to user accounts and ensures that only authenticated users can perform actions like booking properties or accessing personal information
+- **Security Measures**: Token expiration, refresh token rotation, and secure token storage practices
+
+**Role-Based Access Control (RBAC)**
+- **Implementation**: Different permission levels for guests, hosts, and administrators
+- **Why Critical**: Ensures users can only access resources and perform actions appropriate to their role, preventing privilege escalation attacks
+
+### 🛡️ Data Protection
+**Input Validation & Sanitization**
+- **Implementation**: Comprehensive validation of all incoming data using Django's built-in validators and custom validation rules
+- **Why Critical**: Prevents SQL injection, XSS attacks, and data corruption by ensuring all user inputs meet expected formats and constraints
+- **Security Measures**: Parameter validation, SQL injection prevention, and malicious payload detection
+
+**Data Encryption**
+- **Implementation**: Encryption of sensitive data both in transit (HTTPS/TLS) and at rest (database encryption)
+- **Why Critical**: Protects user personal information, payment details, and private communications from unauthorized access even if data is intercepted or breached
+
+### 🚦 Rate Limiting & Throttling
+**API Rate Limiting**
+- **Implementation**: Request throttling based on user authentication status and endpoint sensitivity
+- **Why Critical**: Prevents abuse, DDoS attacks, and ensures fair resource allocation among users while maintaining system performance
+- **Security Measures**: Different rate limits for authentication endpoints, booking operations, and general API access
+
+### 💳 Payment Security
+**PCI DSS Compliance**
+- **Implementation**: Secure payment processing through certified third-party payment processors
+- **Why Critical**: Protects user financial information and ensures compliance with payment industry security standards, preventing credit card fraud and financial data breaches
+- **Security Measures**: Tokenization of payment information, secure payment flows, and audit logging
+
+### 🔍 Security Monitoring & Logging
+**Comprehensive Audit Logging**
+- **Implementation**: Detailed logging of all API requests, authentication attempts, and sensitive operations
+- **Why Critical**: Enables detection of suspicious activities, security incident investigation, and compliance with regulatory requirements
+- **Security Measures**: Centralized logging, log integrity protection, and automated security event alerting
+
+**Real-time Threat Detection**
+- **Implementation**: Monitoring for unusual patterns, failed authentication attempts, and potential security breaches
+- **Why Critical**: Allows for immediate response to security threats and prevents potential data breaches or system compromises
+
+### 🌐 Network Security
+**HTTPS/TLS Encryption**
+- **Implementation**: All API communications encrypted using TLS 1.3 with strong cipher suites
+- **Why Critical**: Prevents man-in-the-middle attacks and ensures data confidentiality during transmission between clients and servers
+
+**CORS (Cross-Origin Resource Sharing) Configuration**
+- **Implementation**: Properly configured CORS policies to control which domains can access the API
+- **Why Critical**: Prevents unauthorized websites from making requests to our API on behalf of users, protecting against cross-site request forgery attacks
+
+### 🔒 Additional Security Measures
+**Environment Variable Protection**
+- **Implementation**: All sensitive configuration data stored in environment variables and never committed to version control
+- **Why Critical**: Prevents exposure of API keys, database credentials, and other sensitive information in the codebase
+
+**Regular Security Updates**
+- **Implementation**: Automated dependency scanning and regular updates of all third-party packages
+- **Why Critical**: Ensures that known security vulnerabilities in dependencies are promptly addressed to maintain system security
 
 ## Getting Started
 
