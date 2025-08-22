@@ -148,9 +148,33 @@ The database structure is designed to efficiently handle all core functionalitie
 - A user can write multiple reviews
 - Each review is written by one user
 
-**Property → Review** (One-to-Many)
-- A property can receive multiple reviews
-- Each review is about one property
+## Feature Breakdown
+
+The AirBnB Clone encompasses several core features that work together to create a comprehensive booking platform. Here's a detailed breakdown of each major feature:
+
+### 🔐 User Management
+This feature handles all user-related operations including registration, authentication, and profile management. Users can create accounts as either guests or hosts, manage their personal information, and maintain secure access to the platform. The system supports role-based access control, ensuring that hosts have additional privileges for property management while maintaining security for all user data.
+
+### 🏡 Property Management
+Property management allows hosts to create, update, and manage their property listings with comprehensive details. Hosts can upload property photos, set pricing, define availability calendars, and specify amenities to attract potential guests. This feature includes property search functionality with filters for location, price range, dates, and amenities, making it easy for guests to find suitable accommodations.
+
+### 📋 Booking System
+The booking system enables guests to search for available properties, make reservations, and manage their bookings throughout the entire stay process. It handles date availability checking, pricing calculations including taxes and fees, and booking confirmation workflows. The system also manages booking statuses from initial request through completion, including cancellation policies and modification requests.
+
+### 💰 Payment Processing
+This feature securely processes all financial transactions between guests and hosts, including booking payments, security deposits, and refunds. It integrates with external payment processors to handle multiple payment methods while maintaining PCI compliance. The system automatically calculates host payouts, platform fees, and handles dispute resolution for payment-related issues.
+
+### ⭐ Review System
+The review system allows verified guests to rate and review properties after their stay, creating a trust-based community. It ensures review authenticity by linking reviews to completed bookings and implements a two-way review system where both guests and hosts can provide feedback. This feature helps maintain quality standards and assists future guests in making informed booking decisions.
+
+### 🔍 Search and Filtering
+Advanced search functionality enables users to find properties based on multiple criteria including location, dates, price range, property type, and amenities. The system uses efficient indexing and caching strategies to provide fast search results even with large datasets. It also includes map-based search integration and saved search functionality for returning users.
+
+### 📧 Notification System
+The notification system keeps users informed about important events such as booking confirmations, payment receipts, check-in reminders, and review requests. It supports multiple communication channels including email and in-app notifications, with user-configurable preferences. The system uses asynchronous task processing to ensure timely delivery without impacting application performance.
+
+### 📊 Analytics and Reporting
+This feature provides hosts with insights into their property performance including booking rates, revenue analytics, and guest demographics. It generates automated reports for financial tracking and helps hosts optimize their pricing and availability strategies. The system also provides platform-wide analytics for administrative purposes and business intelligence.
 
 ## Getting Started
 
