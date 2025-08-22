@@ -15,27 +15,57 @@ The main objectives of this project include:
 5. **Review System**: Allow users to leave reviews and ratings for properties they have booked
 6. **Data Optimization**: Ensure efficient data retrieval and storage through database optimizations and caching strategies
 
-## Tech Stack
+## Technology Stack
 
-This project leverages modern technologies to ensure scalability, performance, and maintainability:
+This project leverages modern technologies to ensure scalability, performance, and maintainability. Here's a detailed breakdown of our tech stack:
 
-- **Backend Framework**: Django with Django REST Framework for building RESTful APIs
-- **Database**: PostgreSQL for robust data storage and management
-- **API**: RESTful APIs documented with OpenAPI standard, plus GraphQL for flexible querying
-- **Authentication**: JWT-based authentication system
-- **Task Queue**: Celery for handling asynchronous tasks
-- **Caching**: Redis for session management and performance optimization
-- **Containerization**: Docker for consistent development and deployment environments
-- **CI/CD**: Automated pipelines for testing and deployment
+### 🐍 Backend Framework
+**Django & Django REST Framework**
+- **Purpose**: Primary web framework for building robust RESTful APIs and handling backend logic
+- **Why Django**: Provides built-in ORM, admin interface, security features, and rapid development capabilities
+- **Why DRF**: Offers powerful tools for API development including serialization, authentication, and browsable API interface
+
+### 🗃️ Database
+**PostgreSQL**
+- **Purpose**: Primary relational database for storing all application data including users, properties, bookings, and transactions
+- **Why PostgreSQL**: Offers advanced features like JSON support, full-text search, robust ACID compliance, and excellent performance for complex queries
+
+### 🔍 API Technologies
+**GraphQL**
+- **Purpose**: Provides a flexible query language allowing clients to request exactly the data they need
+- **Why GraphQL**: Reduces over-fetching, enables efficient data loading, and provides a single endpoint for all data operations
+
+**OpenAPI (Swagger)**
+- **Purpose**: API documentation standard for clear, interactive documentation of REST endpoints
+- **Why OpenAPI**: Ensures consistent API documentation, enables automatic client code generation, and improves developer experience
+
+### ⚡ Task Queue & Caching
+**Celery**
+- **Purpose**: Handles asynchronous tasks such as sending email notifications, processing payments, and generating reports
+- **Why Celery**: Provides reliable task scheduling, retry mechanisms, and scalable background job processing
+
+**Redis**
+- **Purpose**: In-memory data store used for caching, session management, and as a message broker for Celery
+- **Why Redis**: Offers high-performance caching, supports various data structures, and provides pub/sub messaging
+
+### 🐳 Containerization & Deployment
+**Docker**
+- **Purpose**: Containerizes the application for consistent development, testing, and production environments
+- **Why Docker**: Ensures environment consistency, simplifies deployment, and enables easy scaling
+
+### 🔧 Development Tools
+**GitHub Actions (CI/CD)**
+- **Purpose**: Automates testing, building, and deployment processes
+- **Why GitHub Actions**: Integrates seamlessly with GitHub, provides flexible workflow configuration, and supports continuous integration/deployment
+
+### 🔐 Security & Authentication
+**JWT (JSON Web Tokens)**
+- **Purpose**: Stateless authentication mechanism for secure API access
+- **Why JWT**: Provides secure, scalable authentication without server-side session storage
 
 ## Getting Started
 
 This project is currently in the planning and setup phase. More detailed setup instructions will be added as development progresses.
-
-## Contributing
-
-This project is part of a learning curriculum. Please follow the established development workflow and coding standards.
-
 
 ## Team Roles
 
